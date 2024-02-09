@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfsseta.ApplyForLanding", "src\Dfsseta.ApplyForLanding\Dfsseta.ApplyForLanding.csproj", "{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1C722C6A-6A2B-4171-A1C0-413F67B4B423}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE} = {1C722C6A-6A2B-4171-A1C0-413F67B4B423}
+	EndGlobalSection
+EndGlobal

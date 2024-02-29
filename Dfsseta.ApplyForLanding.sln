@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfsseta.ApplyForLanding", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1C722C6A-6A2B-4171-A1C0-413F67B4B423}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FF9A0F7B-C638-428E-8189-6591AD9B8486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfsseta.ApplyForLanding.UnitTests", "Dfsseta.ApplyForLanding.UnitTests\Dfsseta.ApplyForLanding.UnitTests.csproj", "{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,8 +18,13 @@ Global
 		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{279099F7-9CDE-4DE8-A417-D0A1151B4EFE} = {1C722C6A-6A2B-4171-A1C0-413F67B4B423}
+		{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C} = {FF9A0F7B-C638-428E-8189-6591AD9B8486}
 	EndGlobalSection
 EndGlobal

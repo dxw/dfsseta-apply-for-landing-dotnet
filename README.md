@@ -22,7 +22,8 @@ Earth's solar system.
 
 The Apply for Landing application is intended to serve as a reference model
 instantiated in several different languages (namely Kotlin, C#, Javascript,
-Python, and Ruby). This repository contains the Ruby version of the application.
+Python, and [Ruby](https://github.com/dxw/dfsseta-apply-for-landing-ruby)).
+This repository contains the C# version of the application.
 
 ## Service Flow
 

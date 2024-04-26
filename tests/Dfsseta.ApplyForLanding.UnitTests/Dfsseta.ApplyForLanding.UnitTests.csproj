@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\Dfsseta.ApplyForLanding\Dfsseta.ApplyForLanding.csproj" />
+      <ProjectReference Include="..\..\src\Dfsseta.ApplyForLanding\Dfsseta.ApplyForLanding.csproj" />
     </ItemGroup>
 
 </Project>

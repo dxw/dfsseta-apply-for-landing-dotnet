@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1C722C6A-6A2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FF9A0F7B-C638-428E-8189-6591AD9B8486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dfsseta.ApplyForLanding.UnitTests", "Dfsseta.ApplyForLanding.UnitTests\Dfsseta.ApplyForLanding.UnitTests.csproj", "{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests\Dfsseta.ApplyForLanding.UnitTests", "tests\Dfsseta.ApplyForLanding.UnitTests\Dfsseta.ApplyForLanding.UnitTests.csproj", "{6F8A958B-C85F-4AF1-9E14-829F3A0AD77C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

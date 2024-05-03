@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@model BasePageModel
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - Dfsseta.ApplyForLanding</title>
+    <title>@Model.Heading - Dfsseta.ApplyForLanding</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
 </head>
 <body>
@@ -11,7 +13,7 @@
 
 </header>
 <main role="main">
-    <h1 class="govuk-heading-xl">@ViewData["Title"]</h1>
+    <h1 class="govuk-heading-xl">@Model.Heading</h1>
     @RenderBody()
 </main>
 

@@ -49,3 +49,9 @@ Data validation is performed at each stage, preventing the user from continuing
 until all information has been supplied in the correct format. As a result,
 Stage 7 (approval) can be assumed to occur automatically once the first 6 stages
 are complete.
+
+## Architecture decision records
+
+We use ADRs to document architectural decisions that we make. They can be found in
+[docs/adrs](docs/adrs) and contributed to with the
+[adr-tools](https://github.com/npryce/adr-tools).

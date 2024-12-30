@@ -4,6 +4,13 @@
   "description": "The DfSSETA Apply for Landing application supports a fictional Apply for Landing\r service supplied by the (equally fictional) Department for Space Strategy and\r Extra-Terrestrial Affairs.",
   "author": "dxw",
   "license": "MIT",
+  "scripts": {
+    "test:a11y": "npx playwright test accessibility-tests/* --project=google-chrome --project=firefox --project=microsoft-edge --project=webkit",
+    "test:ui": "npx playwright test ui-tests/* --project=google-chrome --project=firefox --project=microsoft-edge --project=webkit",
+    "test:ci": "npx playwright test accessibility-tests/* ui-tests/* --project=google-chrome --project=firefox --project=microsoft-edge --project=webkit",
+    "test:a11y:trace": "npx playwright test accessibility-tests/* --project=chromium --trace=on",
+    "test:ui:trace": "npx playwright test ui-tests/* --project=chromium --trace=on"
+  },
   "devDependencies": {
     "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.2"

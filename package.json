@@ -1,0 +1,11 @@
+{
+  "name": "dfsseta-apply-for-landing-dotnet",
+  "version": "1.0.0",
+  "description": "The DfSSETA Apply for Landing application supports a fictional Apply for Landing\r service supplied by the (equally fictional) Department for Space Strategy and\r Extra-Terrestrial Affairs.",
+  "author": "dxw",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2"
+  }
+}

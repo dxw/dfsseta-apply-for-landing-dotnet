@@ -1,0 +1,7 @@
+name: Apply for Landing
+services:
+  webapp:
+    build:
+      dockerfile: src/Dfsseta.ApplyForLanding/Dockerfile
+    ports:
+      - "8080:8080/tcp"

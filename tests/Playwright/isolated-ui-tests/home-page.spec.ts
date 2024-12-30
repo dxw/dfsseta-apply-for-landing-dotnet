@@ -1,15 +1,7 @@
-import { test } from '@playwright/test';
-import { HomePage } from '../page-object-model/home-page';
+import { test } from "../page-object-model/apply-for-landing-test-fixture";
 
 test.describe('Home page', () => {
-
-    let homePage: HomePage;
-
-    test.beforeEach(async ({ page }) => {
-        homePage = new HomePage(page);
-    });
-
-    test('loads', async () => {
+    test('loads', async ({ homePage }) => {
         await homePage.goTo();
         await homePage.expect.toBeOnTheRightPage();
     });

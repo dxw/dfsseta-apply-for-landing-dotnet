@@ -55,3 +55,15 @@ are complete.
 We use ADRs to document architectural decisions that we make. They can be found in
 [docs/adrs](docs/adrs) and contributed to with the
 [adr-tools](https://github.com/npryce/adr-tools).
+
+## Getting started
+
+### Docker
+
+To start the application in Docker
+
+```shell
+docker compose watch
+```
+
+This will automatically rebuild and rerun the container whenever a change is made. You will need to refresh your webpage to see the changes.

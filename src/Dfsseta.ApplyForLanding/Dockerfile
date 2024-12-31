@@ -1,23 +1,59 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
+﻿# Set the major version of dotnet
+ARG DOTNET_VERSION=8.0
+# Set the major version of nodejs
+ARG NODEJS_VERSION_MAJOR=22
+
+########################### Commented out because we don't have assets yet! ###########################
+# # ASSETS - Build frontend assets using node js
+# FROM "node:${NODEJS_VERSION_MAJOR}-bullseye-slim" AS assets
+# WORKDIR /src
+
+# # - Restore package.json alone to cache expensive restoration work
+# #     Note - Docker COPY caches are invalidated when a file to be copied has changed, then subsequent layers (like `npm ci`) are also invalidated
+# COPY --link package.json package-lock.json /
+# RUN npm ci
+
+# # - Now we can copy all asset-related things over
+# COPY --link ./src/Dfsseta.ApplyForLanding/assets/ /src/Dfsseta.ApplyForLanding/assets/
+# RUN npm run build
+
+#######################################################################################################
+### BUILD
+FROM mcr.microsoft.com/dotnet/sdk:${DOTNET_VERSION} AS build
+WORKDIR /src
+
+# - Copy and restore csproj alone to cache expensive restoration work
+#     Note - Docker COPY caches are invalidated when a file to be copied has changed, then subsequent layers (like `dotnet restore`) are also invalidated
+COPY --link ./src/Dfsseta.ApplyForLanding/Dfsseta.ApplyForLanding.csproj /src/Dfsseta.ApplyForLanding/
+RUN ["dotnet", "restore", "Dfsseta.ApplyForLanding/Dfsseta.ApplyForLanding.csproj"]
+
+# - Now copy everything else over (these are the files most likely to have changed)
+COPY --link ./src/ /src
+WORKDIR "/src/Dfsseta.ApplyForLanding"
+
+# - Build and publish the application
+RUN ["dotnet", "build", "Dfsseta.ApplyForLanding.csproj", "--no-restore", "--configuration", "Release"]
+RUN ["dotnet", "publish", "Dfsseta.ApplyForLanding.csproj", "--no-build", "--configuration", "Release", "--output", "/app/publish", "/p:UseAppHost=false"]
+
+
+#######################################################################################################
+### RUNTIME
+FROM "mcr.microsoft.com/dotnet/aspnet:${DOTNET_VERSION}-azurelinux3.0" AS runtime
+
+# These commands are ordered by "least likely to change" to enable effective caching
+LABEL org.opencontainers.image.source="https://github.com/dxw/dfsseta-apply-for-landing-dotnet"
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
-COPY ["Dfsseta.ApplyForLanding/Dfsseta.ApplyForLanding.csproj", "Dfsseta.ApplyForLanding/"]
-RUN dotnet restore "Dfsseta.ApplyForLanding/Dfsseta.ApplyForLanding.csproj"
-COPY . .
-WORKDIR "/src/Dfsseta.ApplyForLanding"
-RUN dotnet build "Dfsseta.ApplyForLanding.csproj" -c $BUILD_CONFIGURATION -o /app/build
+ENTRYPOINT ["/bin/bash", "./docker-entrypoint.sh", "dotnet", "Dfsseta.ApplyForLanding.dll"]
 
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "Dfsseta.ApplyForLanding.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+COPY --link docker-entrypoint.sh /app
+RUN ["chmod", "+x", "/app/docker-entrypoint.sh"]
 
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Dfsseta.ApplyForLanding.dll"]
+########################### Commented out because we don't have assets yet! ###########################
+#COPY --link --from=assets /app/wwwroot /app/wwwroot
+
+COPY --link --from=build /app/publish /app
+
+# This is the user that the image will use, it has less permissions so needs to be after everything else is configured
+USER $APP_UID

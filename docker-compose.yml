@@ -1,0 +1,11 @@
+name: Apply for Landing
+services:
+  webapp:
+    build:
+      dockerfile: src/Dfsseta.ApplyForLanding/Dockerfile
+    develop:
+      watch: 
+        - path: src
+          action: rebuild
+    ports:
+      - "8080:8080/tcp"
